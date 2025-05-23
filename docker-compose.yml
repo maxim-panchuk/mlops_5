@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pipeline
+    environment:
+      - PYTHONUNBUFFERED=1

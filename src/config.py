@@ -28,5 +28,7 @@ class Config:
     
     def get_spark_config(self) -> Dict[str, Any]:
         return {
-            "spark.driver.memory": self.config.get("spark", "spark.driver.memory")
+            "spark.driver.memory": self.config.get("spark", "spark.driver.memory"),
+            "spark.driver.cores": self.config.get("spark", "spark.driver.cores"),
+            "spark.executor.memory": self.config.get("spark", "spark.executor.memory")
         }

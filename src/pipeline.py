@@ -31,9 +31,13 @@ class Pipeline:
         ]
 
         spark_memory = self.config.get_spark_config()['spark.driver.memory']
+        spark_driver_cores = self.config.get_spark_config()['spark.driver.cores']
+        spark_executor_memory = self.config.get_spark_config()['spark.executor.memory']
         self.spark = SparkSession.builder \
             .master("local[*]") \
             .config("spark.driver.memory", spark_memory) \
+            .config("spark.driver.cores", spark_driver_cores) \
+            .config("spark.executor.memory", spark_executor_memory) \
             .getOrCreate()
 
         path_to_csv = self.config.get_pipeline_config()['path_to_csv']
